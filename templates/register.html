@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Form</title>
+  <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+
+</head>
+<style>
+  .shadow-lg {
+    color: #ff7800;
+  }
+
+  .register h1 {
+    font-size: 2.5rem;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="row-mt-5">
+      <div class="col-md-5 mt-5  mx-auto shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+
+        <form action="" class="register" method="post">
+          <h1 class="text-center">REGISTER HERE</h1>
+          {% csrf_token %}
+          {% if errmsg %}
+          <div class="alert alert-danger">
+            {{ errmsg }}
+          </div>
+          {% endif %}
+         
+          <div class="mb-3">
+            <label for="Input1" class="form-label">Firstname</label>
+            <input type="text" class="form-control" id="Input1" name="fname" placeholder="Enter Firstname">
+          </div>
+
+          <div class="mb-3">
+            <label for="Input1" class="form-label">Lastname</label>
+            <input type="text" class="form-control" id="Input1" name="lname" placeholder="Enter Lastname">
+          </div>
+
+          <div class="mb-3">
+            <label for="Input1" class="form-label">Username</label>
+            <input type="text" class="form-control" id="Input1" name="uname" placeholder="Enter Username">
+          </div>
+
+          <div class="mb-3">
+            <label for="Input1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="Input1" name="email" placeholder="Enter Email">
+          </div>
+
+
+          <div class="mb-3">
+            <label for="Input2" class="form-label">Password</label>
+            <input type="password" class="form-control" id="Input2" name="upass" placeholder="Enter Password">
+          </div>
+
+          <div class="mb-3">
+            <label for="Input3" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="Input3" name="ucom" placeholder="Enter Confirm Password">
+          </div>
+
+
+          <div class="mb-3">
+            <button type="submit" class="btn btn-outline-warning">Register</button> &nbsp;<span>Alraedy Register
+              ?</span>
+            <a href="/login/">Sign in</a>
+          </div>
+
+          {% if success %}
+          <div class="alert alert-success">
+            {{success}}
+          </div>
+          {% endif %}
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/poppr.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- <link rel="stylesheet" href="static/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+</head>
+<style>
+    .container .shadow-lg{color: #ff7800;}
+</style>
+<body>
+    <div class="container">
+        <div class="row-mt-5">
+            <div class="col-md-4 mt-5  mx-auto shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+
+            <h1 class="text-center">LOGIN HERE</h1>
+            <form action="" method="post">
+                {%  csrf_token %}
+                {% if errmsg %}
+                      <div class="alert alert-danger">
+                        {{errmsg}}
+                      </div>
+                    {% endif %}
+                <div class="mb-3">
+                    <label for="Input1" class="form-label">Email</label>
+                    <input type="email" class="form-control"  name="uname" id="Input1" placeholder="Enter Username">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="Input2" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="pass" id="Input2" placeholder="Enter Password">
+                  </div>
+
+                  <div class="mb-3">
+                  {% comment %} <div class="mx-auto" style="width: 200px;"> {% endcomment %}
+                  <button type="submit" class="btn btn-outline-warning" width="90%">Login</button>&nbsp; &nbsp;Not Register ?
+                  <a href="/register/">Register</a><br>
+                  
+                  </div>
+                  {% if success %}
+                  <div class="alert alert-success">
+                    {{success}}
+                  </div>
+                {% endif %}
+            </form>
+        </div>
+        </div>
+    </div>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/poppr.js"></script>
+</body>
+</html>
